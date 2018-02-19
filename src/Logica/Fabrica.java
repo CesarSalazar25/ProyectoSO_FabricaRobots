@@ -140,7 +140,7 @@ public class Fabrica
         Productor_cuerpo= new ArrayList<Productor>(max_prod_cuerpo);
         Productor_extremidad= new ArrayList<Productor>(max_prod_extremidad);
         Ensambladores= new ArrayList<Ensamblador>(max_ensambladores);
-
+        
     }
     
     //Método para contratar productor de cabezas de robot:
@@ -148,7 +148,7 @@ public class Fabrica
     {
         if (ini_prod_cabeza!=max_prod_cabeza) 
         {
-           Productor Prod_Cabeza = new Productor(almacen, SE_ProductorCabeza, S_ProductorCabeza, S_EnsambladorCabeza, 0, cantidadCabezas, tiempo_dia);
+           Productor Prod_Cabeza = new Productor(almacen, SE_ProductorCabeza, S_ProductorCabeza, S_EnsambladorCabeza, 0, cantidadCabezas, 2);
            Productor_cabeza.add(Prod_Cabeza);
            ini_prod_cabeza++;
            cantidadProdCab.setText(Integer.toString(ini_prod_cabeza));  
@@ -161,7 +161,7 @@ public class Fabrica
     {
         if (ini_prod_cuerpo!=max_prod_cuerpo) 
         {
-           Productor Prod_Cuerpo = new Productor(almacen, SE_ProductorCuerpo, S_ProductorCuerpo, S_EnsambladorCuerpo, 1, cantidadCuerpos, tiempo_dia);
+           Productor Prod_Cuerpo = new Productor(almacen, SE_ProductorCuerpo, S_ProductorCuerpo, S_EnsambladorCuerpo, 1, cantidadCuerpos, 3);
            Productor_cuerpo.add(Prod_Cuerpo);
            ini_prod_cuerpo++;
            cantidadProdCuerpo.setText(Integer.toString(ini_prod_cuerpo));  
@@ -175,7 +175,7 @@ public class Fabrica
     {
         if (ini_prod_extremidad!=max_prod_extremidad) 
         {
-           Productor Prod_Extremidad = new Productor(almacen, SE_ProductorExtremidad, S_ProductorExtremidad, S_EnsambladorExtremidad, 2, cantidadExtremidades, tiempo_dia);
+           Productor Prod_Extremidad = new Productor(almacen, SE_ProductorExtremidad, S_ProductorExtremidad, S_EnsambladorExtremidad, 2, cantidadExtremidades, 1);
            Productor_extremidad.add(Prod_Extremidad);
            ini_prod_extremidad++;
            cantidadProdExtrem.setText(Integer.toString(ini_prod_extremidad));  
@@ -274,19 +274,19 @@ public class Fabrica
         
       while (aux1!=0)
       { 
-        Productor_cabeza.add(new Productor(almacen, SE_ProductorCabeza, S_ProductorCabeza, S_EnsambladorCabeza, 0, cantidadCabezas, tiempo_dia));
+        Productor_cabeza.add(new Productor(almacen, SE_ProductorCabeza, S_ProductorCabeza, S_EnsambladorCabeza, 0, cantidadCabezas, 2));
         aux1--;
       }
       
       while (aux2!=0)
       {
-        Productor_cuerpo.add(new Productor(almacen, SE_ProductorCabeza, S_ProductorCabeza, S_EnsambladorCabeza, 1, cantidadCuerpos, tiempo_dia));
+        Productor_cuerpo.add(new Productor(almacen, SE_ProductorCabeza, S_ProductorCabeza, S_EnsambladorCabeza, 1, cantidadCuerpos, 3));
         aux2--;
       }
       
       while (aux3!=0)
       {
-        Productor_extremidad.add(new Productor(almacen, SE_ProductorCabeza, S_ProductorCabeza, S_EnsambladorCabeza, 2, cantidadExtremidades, tiempo_dia));
+        Productor_extremidad.add(new Productor(almacen, SE_ProductorCabeza, S_ProductorCabeza, S_EnsambladorCabeza, 2, cantidadExtremidades, 1));
         aux3--;
       }
        

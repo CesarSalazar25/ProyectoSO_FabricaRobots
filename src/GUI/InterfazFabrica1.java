@@ -10,12 +10,12 @@ import java.util.logging.Logger;
  *Proyecto SO - Trimestre 1718-2
  *Hecho por César Salazar y Loredana de Miro 
  */
-public class InterfazFabrica extends javax.swing.JFrame 
+public class InterfazFabrica1 extends javax.swing.JFrame 
 {
 
     Fabrica fabrica_robots;
 
-    public InterfazFabrica() throws IOException
+    public InterfazFabrica1() throws IOException
     {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -95,39 +95,48 @@ public class InterfazFabrica extends javax.swing.JFrame
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         extremidades.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         extremidades.setForeground(new java.awt.Color(255, 255, 255));
         extremidades.setText("Extremidades");
+        jPanel1.add(extremidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 113, 105, -1));
 
         cuerpo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cuerpo.setForeground(new java.awt.Color(255, 255, 255));
         cuerpo.setText("Cuerpo");
+        jPanel1.add(cuerpo, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 106, -1, -1));
 
         cantRobotsProducidos.setBackground(new java.awt.Color(255, 255, 204));
-        cantRobotsProducidos.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+        cantRobotsProducidos.setFont(new java.awt.Font("Impact", 0, 20)); // NOI18N
         cantRobotsProducidos.setForeground(new java.awt.Color(255, 255, 255));
         cantRobotsProducidos.setText("Nro. Robots Producidos");
+        jPanel1.add(cantRobotsProducidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 104, -1, -1));
 
         diasDespacho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         diasDespacho.setForeground(new java.awt.Color(255, 255, 255));
         diasDespacho.setText("Días que faltan para el despacho:");
+        jPanel1.add(diasDespacho, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 390, 237, -1));
 
         hombresMecanicos.setFont(new java.awt.Font("Impact", 1, 36)); // NOI18N
         hombresMecanicos.setForeground(new java.awt.Color(255, 255, 255));
         hombresMecanicos.setText("HOMBRES MECÁNICOS C.A.");
+        jPanel1.add(hombresMecanicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 21, -1, 37));
 
         cabezaRobot.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cabezaRobot.setForeground(new java.awt.Color(255, 255, 255));
         cabezaRobot.setText("Cabeza");
+        jPanel1.add(cabezaRobot, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 104, 60, -1));
 
         estatusGerente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         estatusGerente.setForeground(new java.awt.Color(255, 255, 255));
         estatusGerente.setText("Estatus Gerente:");
+        jPanel1.add(estatusGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 338, -1, -1));
 
         estatusCronometrador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         estatusCronometrador.setForeground(new java.awt.Color(255, 255, 255));
         estatusCronometrador.setText("Estatus Cronometrador:");
+        jPanel1.add(estatusCronometrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 390, -1, -1));
 
         Pausar.setText("Pausar");
         Pausar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +144,7 @@ public class InterfazFabrica extends javax.swing.JFrame
                 PausarActionPerformed(evt);
             }
         });
+        jPanel1.add(Pausar, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 35, 94, -1));
 
         Reanudar.setText("Reanudar");
         Reanudar.addActionListener(new java.awt.event.ActionListener() {
@@ -142,10 +152,11 @@ public class InterfazFabrica extends javax.swing.JFrame
                 ReanudarActionPerformed(evt);
             }
         });
+        jPanel1.add(Reanudar, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 35, 94, -1));
 
         jLabel1.setText("Cantidad de cabezas producidas:");
 
-        cantidadCabezas.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        cantidadCabezas.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         cantidadCabezas.setText("X");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/head.jpg"))); // NOI18N
@@ -164,7 +175,7 @@ public class InterfazFabrica extends javax.swing.JFrame
                         .addComponent(cantidadCabezas)
                         .addGap(26, 26, 26)
                         .addComponent(jLabel2)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,9 +247,11 @@ public class InterfazFabrica extends javax.swing.JFrame
 
         cabezaDatos.addTab("Productor", jPanel3);
 
+        jPanel1.add(cabezaDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 139, 200, -1));
+
         jLabel4.setText("Cantidad de cuerpos producidos:");
 
-        cantidadCuerpos.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        cantidadCuerpos.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         cantidadCuerpos.setText("X");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/body.jpg"))); // NOI18N
@@ -329,9 +342,11 @@ public class InterfazFabrica extends javax.swing.JFrame
 
         cuerpoDatos.addTab("Productor", jPanel5);
 
+        jPanel1.add(cuerpoDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 141, 200, 175));
+
         jLabel8.setText("Cantidad de extremidades producidas:");
 
-        cantidadExtremidades.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        cantidadExtremidades.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         cantidadExtremidades.setText("X");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/arms.jpg"))); // NOI18N
@@ -348,7 +363,7 @@ public class InterfazFabrica extends javax.swing.JFrame
                 .addComponent(cantidadExtremidades)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,7 +408,7 @@ public class InterfazFabrica extends javax.swing.JFrame
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(cantidadProdExtrem)
@@ -422,9 +437,12 @@ public class InterfazFabrica extends javax.swing.JFrame
 
         extremidadesDatos.addTab("Productor", jPanel7);
 
+        jPanel1.add(extremidadesDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 141, 219, 175));
+
         ensambladores.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ensambladores.setForeground(new java.awt.Color(255, 255, 255));
         ensambladores.setText("Cantidad de Ensambladores:");
+        jPanel1.add(ensambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 338, -1, -1));
 
         contratarEnsamblador.setText("contratar");
         contratarEnsamblador.addActionListener(new java.awt.event.ActionListener() {
@@ -432,6 +450,7 @@ public class InterfazFabrica extends javax.swing.JFrame
                 contratarEnsambladorActionPerformed(evt);
             }
         });
+        jPanel1.add(contratarEnsamblador, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 370, 108, -1));
 
         despedirEnsamblador.setText("despedir");
         despedirEnsamblador.addActionListener(new java.awt.event.ActionListener() {
@@ -439,28 +458,35 @@ public class InterfazFabrica extends javax.swing.JFrame
                 despedirEnsambladorActionPerformed(evt);
             }
         });
+        jPanel1.add(despedirEnsamblador, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 399, 108, -1));
 
         cantidadEnsambladores.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         cantidadEnsambladores.setForeground(new java.awt.Color(255, 255, 255));
         cantidadEnsambladores.setText("X");
+        jPanel1.add(cantidadEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 374, -1, -1));
 
         robotimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/robot.jpg"))); // NOI18N
+        jPanel1.add(robotimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 141, -1, -1));
 
-        cantidadRobots.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        cantidadRobots.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         cantidadRobots.setForeground(new java.awt.Color(255, 255, 255));
         cantidadRobots.setText("X");
+        jPanel1.add(cantidadRobots, new org.netbeans.lib.awtextra.AbsoluteConstraints(814, 188, -1, -1));
 
-        nroDiasDespacho.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        nroDiasDespacho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nroDiasDespacho.setForeground(new java.awt.Color(255, 255, 255));
         nroDiasDespacho.setText("X");
+        jPanel1.add(nroDiasDespacho, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 386, -1, -1));
 
-        estadoGerente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        estadoGerente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         estadoGerente.setForeground(new java.awt.Color(255, 255, 255));
         estadoGerente.setText("X");
+        jPanel1.add(estadoGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
-        estadoCrono.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        estadoCrono.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         estadoCrono.setForeground(new java.awt.Color(255, 255, 255));
         estadoCrono.setText("X");
+        jPanel1.add(estadoCrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, -1, -1));
 
         Iniciar.setText("Iniciar");
         Iniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -468,153 +494,17 @@ public class InterfazFabrica extends javax.swing.JFrame
                 IniciarActionPerformed(evt);
             }
         });
+        jPanel1.add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(571, 35, 94, -1));
 
         diasTranscurridos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         diasTranscurridos.setForeground(new java.awt.Color(255, 255, 255));
         diasTranscurridos.setText("Días transcurridos:");
+        jPanel1.add(diasTranscurridos, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 338, -1, -1));
 
-        nroDias.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        nroDias.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nroDias.setForeground(new java.awt.Color(255, 255, 255));
         nroDias.setText("X");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(hombresMecanicos))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cabezaDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(cabezaRobot, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(ensambladores))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(36, 36, 36)
-                            .addComponent(cantidadEnsambladores)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(despedirEnsamblador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(contratarEnsamblador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)))))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(cuerpo)
-                        .addGap(176, 176, 176)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(extremidades, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cantRobotsProducidos))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
-                                .addComponent(Pausar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Reanudar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(estatusCronometrador)
-                                .addGap(52, 52, 52)
-                                .addComponent(estadoCrono))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(estatusGerente)
-                                        .addGap(68, 68, 68)
-                                        .addComponent(estadoGerente))
-                                    .addComponent(cuerpoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(48, 48, 48)
-                                        .addComponent(extremidadesDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(54, 54, 54)
-                                        .addComponent(cantidadRobots)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(robotimg))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(193, 193, 193)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(155, 155, 155)
-                                                .addComponent(nroDias))
-                                            .addComponent(diasTranscurridos)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(diasDespacho, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(nroDiasDespacho)))))))
-                        .addContainerGap(34, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hombresMecanicos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Iniciar)
-                        .addComponent(Pausar)
-                        .addComponent(Reanudar)))
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(extremidades)
-                            .addComponent(cuerpo)
-                            .addComponent(cabezaRobot))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cantidadEnsambladores)
-                        .addGap(13, 13, 13))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cuerpoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cabezaDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(extremidadesDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cantRobotsProducidos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(robotimg)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(62, 62, 62)
-                                        .addComponent(cantidadRobots)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ensambladores)
-                            .addComponent(estatusGerente)
-                            .addComponent(estadoGerente)
-                            .addComponent(diasTranscurridos)
-                            .addComponent(nroDias))
-                        .addComponent(contratarEnsamblador)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(despedirEnsamblador))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(estatusCronometrador)
-                                    .addComponent(estadoCrono)
-                                    .addComponent(diasDespacho)
-                                    .addComponent(nroDiasDespacho))))))
-                .addGap(33, 33, 33))
-        );
+        jPanel1.add(nroDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 334, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 50, 1010, 450));
 
@@ -633,94 +523,94 @@ public class InterfazFabrica extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void contratarEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarEnsambladorActionPerformed
-        // TODO add your handling code here:
-        fabrica_robots.Contratar_Ensamblador();
-    }//GEN-LAST:event_contratarEnsambladorActionPerformed
-
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
-    private void PausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausarActionPerformed
-
-        for (Object p_cab: fabrica_robots.Productor_cabeza) 
-        {
-          ((Productor)p_cab).setParar(true); 
-        }
-        for (Object p_cue: fabrica_robots.Productor_cuerpo) 
-        {
-          ((Productor)p_cue).setParar(true); 
-        }
-        for (Object p_ext: fabrica_robots.Productor_extremidad) 
-        {
-          ((Productor)p_ext).setParar(true); 
-        }
-        for (Object ens: fabrica_robots.Ensambladores) 
-        {
-          ((Productor)ens).setParar(true); 
-        }
-        
-    }//GEN-LAST:event_PausarActionPerformed
-
-    private void contratarProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCabActionPerformed
+    private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Contratar_Prod_Cabeza();
-    }//GEN-LAST:event_contratarProdCabActionPerformed
-
-    private void contratarProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCuerposActionPerformed
-        // TODO add your handling code here:
-        fabrica_robots.Contratar_Prod_Cuerpo();
-    }//GEN-LAST:event_contratarProdCuerposActionPerformed
-
-    private void contratarProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdExtremActionPerformed
-        // TODO add your handling code here:
-        fabrica_robots.Contratar_Prod_Extremidad();
-    }//GEN-LAST:event_contratarProdExtremActionPerformed
-
-    private void despedirProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCabActionPerformed
-        // TODO add your handling code here:
-        fabrica_robots.Despedir_Prod_Cabeza();
-    }//GEN-LAST:event_despedirProdCabActionPerformed
-
-    private void despedirProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCuerposActionPerformed
-        // TODO add your handling code here:
-        fabrica_robots.Despedir_Prod_Cuerpo();
-    }//GEN-LAST:event_despedirProdCuerposActionPerformed
-
-    private void despedirProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdExtremActionPerformed
-        // TODO add your handling code here:
-        fabrica_robots.Despedir_Prod_Extremidad();
-    }//GEN-LAST:event_despedirProdExtremActionPerformed
+        fabrica_robots.Producir_Ensamblar();
+    }//GEN-LAST:event_IniciarActionPerformed
 
     private void despedirEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEnsambladorActionPerformed
         // TODO add your handling code here:
         fabrica_robots.Despedir_Ensamblador();
     }//GEN-LAST:event_despedirEnsambladorActionPerformed
 
+    private void contratarEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarEnsambladorActionPerformed
+        // TODO add your handling code here:
+        fabrica_robots.Contratar_Ensamblador();
+    }//GEN-LAST:event_contratarEnsambladorActionPerformed
+
+    private void despedirProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdExtremActionPerformed
+        // TODO add your handling code here:
+        fabrica_robots.Despedir_Prod_Extremidad();
+    }//GEN-LAST:event_despedirProdExtremActionPerformed
+
+    private void contratarProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdExtremActionPerformed
+        // TODO add your handling code here:
+        fabrica_robots.Contratar_Prod_Extremidad();
+    }//GEN-LAST:event_contratarProdExtremActionPerformed
+
+    private void despedirProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCuerposActionPerformed
+        // TODO add your handling code here:
+        fabrica_robots.Despedir_Prod_Cuerpo();
+    }//GEN-LAST:event_despedirProdCuerposActionPerformed
+
+    private void contratarProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCuerposActionPerformed
+        // TODO add your handling code here:
+        fabrica_robots.Contratar_Prod_Cuerpo();
+    }//GEN-LAST:event_contratarProdCuerposActionPerformed
+
+    private void despedirProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCabActionPerformed
+        // TODO add your handling code here:
+        fabrica_robots.Despedir_Prod_Cabeza();
+    }//GEN-LAST:event_despedirProdCabActionPerformed
+
+    private void contratarProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCabActionPerformed
+        // TODO add your handling code here:
+        fabrica_robots.Contratar_Prod_Cabeza();
+    }//GEN-LAST:event_contratarProdCabActionPerformed
+
     private void ReanudarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReanudarActionPerformed
-        for (Object p_cab: fabrica_robots.Productor_cabeza) 
+        for (Object p_cab: fabrica_robots.Productor_cabeza)
         {
-          ((Productor)p_cab).getDetener().release(); 
+            ((Productor)p_cab).getDetener().release();
         }
-        for (Object p_cue: fabrica_robots.Productor_cuerpo) 
+        for (Object p_cue: fabrica_robots.Productor_cuerpo)
         {
-          ((Productor)p_cue).getDetener().release(); 
+            ((Productor)p_cue).getDetener().release();
         }
-        for (Object p_ext: fabrica_robots.Productor_extremidad) 
+        for (Object p_ext: fabrica_robots.Productor_extremidad)
         {
-          ((Productor)p_ext).getDetener().release(); 
+            ((Productor)p_ext).getDetener().release();
         }
-        for (Object ens: fabrica_robots.Ensambladores) 
+        for (Object ens: fabrica_robots.Ensambladores)
         {
-          ((Productor)ens).getDetener().release(); 
-        }         
+            ((Productor)ens).getDetener().release();
+        }
     }//GEN-LAST:event_ReanudarActionPerformed
 
-    private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
-        // TODO add your handling code here:
-        fabrica_robots.Producir_Ensamblar();
-    }//GEN-LAST:event_IniciarActionPerformed
+    private void PausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausarActionPerformed
+
+        for (Object p_cab: fabrica_robots.Productor_cabeza)
+        {
+            ((Productor)p_cab).setParar(true);
+        }
+        for (Object p_cue: fabrica_robots.Productor_cuerpo)
+        {
+            ((Productor)p_cue).setParar(true);
+        }
+        for (Object p_ext: fabrica_robots.Productor_extremidad)
+        {
+            ((Productor)p_ext).setParar(true);
+        }
+        for (Object ens: fabrica_robots.Ensambladores)
+        {
+            ((Productor)ens).setParar(true);
+        }
+
+    }//GEN-LAST:event_PausarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -739,14 +629,15 @@ public class InterfazFabrica extends javax.swing.JFrame
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfazFabrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazFabrica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfazFabrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazFabrica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfazFabrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazFabrica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfazFabrica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InterfazFabrica1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -756,11 +647,11 @@ public class InterfazFabrica extends javax.swing.JFrame
             {
                 try 
                 {
-                    new InterfazFabrica().setVisible(true);
+                    new InterfazFabrica1().setVisible(true);
                 } 
                 catch (IOException ex) 
                 {
-                    Logger.getLogger(InterfazFabrica.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(InterfazFabrica1.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
