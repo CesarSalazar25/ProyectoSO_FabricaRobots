@@ -149,7 +149,7 @@ public class Productor extends Thread
                     almacen.setCant_cabeza(apuntador, 1);
                     sleep(1000*tiempo_produccion);
                     apuntador = (apuntador + 1)%almacen.getTam_cabeza();
-                    //System.out.println("+ Productor de Marco "+ idM + ": Produje un marco  +");
+                    System.out.println("+Productor de Cabeza: Produce un cabeza robot+");
                     Semaforo_Excluyente.release();
                     Semaforo_Ensamblador.release();
                     label.setText(Integer.toString(almacen.Contar_Cabeza()));
@@ -177,7 +177,7 @@ public class Productor extends Thread
                     almacen.setCant_cuerp(apuntador, 1);
                     sleep(1000*tiempo_produccion);
                     apuntador = (apuntador + 1)%almacen.getTam_cuerpo();
-                    //System.out.println("+ Productor de Marco "+ idM + ": Produje un marco  +");
+                    System.out.println("+ Productor de Cuerpo: Produce un cuerpo robot+");
                     Semaforo_Excluyente.release();
                     Semaforo_Ensamblador.release();
                     label.setText(Integer.toString(almacen.Contar_Cuerpo()));
@@ -206,7 +206,7 @@ public class Productor extends Thread
                     almacen.setCant_extremidad(apuntador, 1);
                     sleep(1000*tiempo_produccion);
                     apuntador = (apuntador + 1)%almacen.getTam_extremidad();
-                    //System.out.println("+ Productor de Marco "+ idM + ": Produje un marco  +");
+                    System.out.println("+Productor de Extremidad: Produce una extremidad de robot+");
                     Semaforo_Excluyente.release();
                     Semaforo_Ensamblador.release();
                     label.setText(Integer.toString(almacen.Contar_Extremidad()));

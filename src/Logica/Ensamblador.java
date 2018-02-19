@@ -16,10 +16,7 @@ public class Ensamblador extends Thread
     private boolean parar, pausar=false;
     
     //Constructor vacío:
-    public Ensamblador()
-    {
-        
-    }
+
     
     //Constructor lleno:
     public Ensamblador(Almacen almacen, Semaphore Semaforo_ProducciónCabeza, Semaphore Semaforo_ConsumidorCabeza, Semaphore Semaforo_ExcluyenteCabeza, Semaphore Semaforo_ProducciónCuerpo, Semaphore Semaforo_ConsumidorCuerpo, Semaphore Semaforo_ExcluyenteCuerpo, Semaphore Semaforo_ProducciónExtremidad, Semaphore Semaforo_ConsumidorExtremidad, Semaphore Semaforo_ExcluyenteExtremidad, Semaphore Semaforo_ExcluyenteEnsamblador, int tiempo_ensamblaje, JLabel Cabezas, JLabel Cuerpos, JLabel Extremidades, JLabel Robots) 
@@ -84,7 +81,7 @@ public class Ensamblador extends Thread
                             Cabezas.setText(Integer.toString(almacen.Contar_Cabeza()));
                             apuntador_Cabeza = (apuntador_Cabeza+1)%almacen.getTam_cabeza();
                             cabezasR++;
-                            //System.out.println("#      Ensamblador "+ idE + ": Tomé una rueda      #");
+                            System.out.println("#Ensamblador toma un cuerpo de robot#");
                             Semaforo_ExcluyenteCabeza.release();
                             Semaforo_ProducciónCabeza.release();
                             Semaforo_ExcluyenteEnsamblador.release();    
@@ -109,7 +106,7 @@ public class Ensamblador extends Thread
                             Extremidades.setText(Integer.toString(almacen.Contar_Extremidad()));
                             apuntador_Extremidad = (apuntador_Extremidad+1)%almacen.getTam_extremidad();
                             extremidadesR++; 
-                            //System.out.println("#       Ensamblador "+ idE + ": Tomé un marco      #");
+                            System.out.println("#Ensamblador toma un cuerpo de robot#");
                             Semaforo_ExcluyenteExtremidad.release();
                             Semaforo_ProducciónExtremidad.release();
                             Semaforo_ExcluyenteEnsamblador.release();
@@ -134,7 +131,7 @@ public class Ensamblador extends Thread
                             Cuerpos.setText(Integer.toString(almacen.Contar_Cuerpo()));
                             apuntador_Cuerpo = (apuntador_Cuerpo+1)%almacen.getTam_cuerpo();
                             cuerposR++; 
-                            //System.out.println("#       Ensamblador "+ idE + ": Tomé un marco      #");
+                            System.out.println("#Ensamblador toma un cuerpo de robot#");
                             Semaforo_ExcluyenteCuerpo.release();
                             Semaforo_ProducciónCuerpo.release();
                             Semaforo_ExcluyenteEnsamblador.release();
@@ -155,7 +152,7 @@ public class Ensamblador extends Thread
                     }
                     
                     robots++;
-                    //System.out.println("< Ensamblador "+ idE + ": Ensamblé una Bicicleta!! >");
+                    System.out.println("+Ensamblador: Ensambla un robot+");
                     Robots.setText(Integer.toString(robots));
                     
                 }

@@ -15,14 +15,13 @@ public class Cronometrador extends Thread
     private boolean escritura = false;
     
     //Constructor:
-    public Cronometrador(int tiempo, JLabel estadoCrono, JLabel nroDias, Contador cont_dia, Semaphore SE_Calendar, boolean escritura) 
+    public Cronometrador(int tiempo, JLabel estadoCrono, JLabel nroDias, Contador cont_dia, Semaphore SE_Calendar) 
     {
         this.tiempo = tiempo;
         this.estadoCrono = estadoCrono;
         this.nroDias = nroDias;
         this.cont_dia = cont_dia;
         this.SE_Calendar = SE_Calendar;
-        this.escritura = escritura;
     }
     
     @Override

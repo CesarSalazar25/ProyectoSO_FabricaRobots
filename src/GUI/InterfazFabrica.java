@@ -20,6 +20,7 @@ public class InterfazFabrica extends javax.swing.JFrame
         initComponents();
         this.setLocationRelativeTo(null);
         fabrica_robots= new Fabrica (this.nroDiasDespacho, this.cantidadCabezas, this.cantidadCuerpos, this.cantidadExtremidades, this.cantidadProdCab, this.cantidadProdCuerpo, this.cantidadProdExtrem, this.cantidadEnsambladores, this.cantidadRobots, this.estadoGerente, this.estadoCrono, this.nroDias);
+        fabrica_robots.Inicializar_ArrayLists();
     }
 
     
@@ -634,7 +635,7 @@ public class InterfazFabrica extends javax.swing.JFrame
 
     private void contratarEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarEnsambladorActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Contratar_Ensamblador();
+        fabrica_robots.Contratar_Ensamblador();
     }//GEN-LAST:event_contratarEnsambladorActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -642,52 +643,83 @@ public class InterfazFabrica extends javax.swing.JFrame
     }//GEN-LAST:event_salirActionPerformed
 
     private void PausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausarActionPerformed
-        //fabrica_robots.Pausar_Todo();
+
+        for (Object p_cab: fabrica_robots.Productor_cabeza) 
+        {
+          ((Productor)p_cab).setParar(true); 
+        }
+        for (Object p_cue: fabrica_robots.Productor_cuerpo) 
+        {
+          ((Productor)p_cue).setParar(true); 
+        }
+        for (Object p_ext: fabrica_robots.Productor_extremidad) 
+        {
+          ((Productor)p_ext).setParar(true); 
+        }
+        for (Object ens: fabrica_robots.Ensambladores) 
+        {
+          ((Productor)ens).setParar(true); 
+        }
+        
     }//GEN-LAST:event_PausarActionPerformed
 
     private void contratarProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCabActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Contratar_Prod_Cabeza();
+        fabrica_robots.Contratar_Prod_Cabeza();
     }//GEN-LAST:event_contratarProdCabActionPerformed
 
     private void contratarProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCuerposActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Contratar_Prod_Cuerpo();
+        fabrica_robots.Contratar_Prod_Cuerpo();
     }//GEN-LAST:event_contratarProdCuerposActionPerformed
 
     private void contratarProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdExtremActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Contratar_Prod_Extremidad();
+        fabrica_robots.Contratar_Prod_Extremidad();
     }//GEN-LAST:event_contratarProdExtremActionPerformed
 
     private void despedirProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCabActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Despedir_Prod_Cabeza();
+        fabrica_robots.Despedir_Prod_Cabeza();
     }//GEN-LAST:event_despedirProdCabActionPerformed
 
     private void despedirProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCuerposActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Despedir_Prod_Cuerpo();
+        fabrica_robots.Despedir_Prod_Cuerpo();
     }//GEN-LAST:event_despedirProdCuerposActionPerformed
 
     private void despedirProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdExtremActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Despedir_Prod_Extremidad();
+        fabrica_robots.Despedir_Prod_Extremidad();
     }//GEN-LAST:event_despedirProdExtremActionPerformed
 
     private void despedirEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEnsambladorActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Despedir_Ensamblador();
+        fabrica_robots.Despedir_Ensamblador();
     }//GEN-LAST:event_despedirEnsambladorActionPerformed
 
     private void ReanudarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReanudarActionPerformed
-        // TODO add your handling code here:
-        //fabrica_robots.Reanudar();
+        for (Object p_cab: fabrica_robots.Productor_cabeza) 
+        {
+          ((Productor)p_cab).getDetener().release(); 
+        }
+        for (Object p_cue: fabrica_robots.Productor_cuerpo) 
+        {
+          ((Productor)p_cue).getDetener().release(); 
+        }
+        for (Object p_ext: fabrica_robots.Productor_extremidad) 
+        {
+          ((Productor)p_ext).getDetener().release(); 
+        }
+        for (Object ens: fabrica_robots.Ensambladores) 
+        {
+          ((Productor)ens).getDetener().release(); 
+        }         
     }//GEN-LAST:event_ReanudarActionPerformed
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
         // TODO add your handling code here:
-        //fabrica_robots.Iniciar();
+        fabrica_robots.Producir_Ensamblar();
     }//GEN-LAST:event_IniciarActionPerformed
 
     /**

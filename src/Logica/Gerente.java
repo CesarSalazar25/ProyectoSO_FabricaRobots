@@ -20,13 +20,12 @@ public class Gerente extends Thread
     private int tiempo_Duerme, tiempo_Dia;
     
     //Constructor:
-    public Gerente(Contador cont_dia, Semaphore SE_Robots, Semaphore SE_Calendar, Almacen almacen, boolean revision, JLabel estadoGerente, JLabel cantRobots, int tiempo_Dia) 
+    public Gerente(Contador cont_dia, Semaphore SE_Robots, Semaphore SE_Calendar, Almacen almacen, JLabel estadoGerente, JLabel cantRobots, int tiempo_Dia) 
     {
         this.cont_dia = cont_dia;
         this.SE_Robots = SE_Robots;
         this.SE_Calendar = SE_Calendar;
         this.almacen = almacen;
-        this.revision = revision;
         this.estadoGerente = estadoGerente;
         this.cantRobots = cantRobots;
         this.tiempo_Dia = tiempo_Dia;
