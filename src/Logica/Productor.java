@@ -124,71 +124,88 @@ public class Productor extends Thread
      {
         while(true)
         {
-            //Parar proceso de producción:
-            if (parar) 
+            //Pausa el proceso de producción:
+            synchronized(this)
             {
-                try 
+                while(pausar==true)
                 {
-                    Detener.acquire();
-                } 
-                catch (InterruptedException ex) 
-                {
-                    Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                parar=false;
-            }
-            
-            //Productor de Cabeza
+                    try 
+                    {
+                        wait();
+                    } 
+                    catch (InterruptedException ex) 
+                    {
+                        Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }    
+            }            
+            //Productor de Cabeza:
             if(tipo==0)
             {
                 try 
                 {
-
+                    //Comprueba espacio en el almacen:
                     Semaforo_Productor.acquire();
-                    Semaforo_Excluyente.acquire();
-                    almacen.setCant_cabeza(apuntador, 1);
-                    sleep(1000*tiempo_produccion);
-                    apuntador = (apuntador + 1)%almacen.getTam_cabeza();
-                    System.out.println("+Productor de Cabeza: Produce un cabeza robot+");
-                    Semaforo_Excluyente.release();
-                    Semaforo_Ensamblador.release();
-                    label.setText(Integer.toString(almacen.Contar_Cabeza()));
                     
-                    synchronized(this)
+                    //Produce:
+                    sleep(1000*tiempo_produccion);
+                    System.out.println("+Productor de Cabeza: Produce un cabeza robot+");
+                    
+                    //Entra en el almacen:                    
+                    Semaforo_Excluyente.acquire();
+                    
+                    //Deja lo producido en el almacen:
+                    almacen.setCant_cabeza(apuntador, 1);
+                        //sleep(1000*tiempo_produccion);
+                    apuntador = (apuntador + 1)%almacen.getTam_cabeza();
+                    label.setText(Integer.toString(almacen.Contar_Cabeza()));
+                        //System.out.println("+Productor de Cabeza: Produce un cabeza robot+");
+                        
+                    //Se sale del almacen:                          
+                    Semaforo_Excluyente.release();
+                    
+                    //Listo para consumir                    
+                    Semaforo_Ensamblador.release();
+                        //label.setText(Integer.toString(almacen.Contar_Cabeza()));
+                    
+                    /*synchronized(this)
                     {
                        while(pausar==true)
                        {
                             wait();
                        }    
-                    }
+                    }*/
                 } 
                 catch (InterruptedException ex) 
                 {
                     Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                 }                
             }
+            //Productor Cuerpo:
             else if(tipo==1)
             {
                 try 
                 {
-
                     Semaforo_Productor.acquire();
+                    sleep(1000*tiempo_produccion);
+                    System.out.println("+ Productor de Cuerpo: Produce un cuerpo robot+");
                     Semaforo_Excluyente.acquire();
                     almacen.setCant_cuerp(apuntador, 1);
-                    sleep(1000*tiempo_produccion);
+                        //sleep(1000*tiempo_produccion);
+                        //System.out.println("+ Productor de Cuerpo: Produce un cuerpo robot+");
                     apuntador = (apuntador + 1)%almacen.getTam_cuerpo();
-                    System.out.println("+ Productor de Cuerpo: Produce un cuerpo robot+");
+                    label.setText(Integer.toString(almacen.Contar_Cuerpo()));                  
                     Semaforo_Excluyente.release();
                     Semaforo_Ensamblador.release();
                     label.setText(Integer.toString(almacen.Contar_Cuerpo()));
                     
-                    synchronized(this)
+                    /*synchronized(this)
                     {
                        while(pausar==true)
                        {
                             wait();
                        }    
-                    }
+                    }*/
 
                 } 
                 catch (InterruptedException ex) 
@@ -196,27 +213,29 @@ public class Productor extends Thread
                     Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                 }                
             }
+            //Productor de Extremidad:
             else
             {
                 try 
                 {
-
                     Semaforo_Productor.acquire();
+                    sleep(1000*tiempo_produccion);
+                    System.out.println("+Productor de Extremidad: Produce una extremidad de robot+");
                     Semaforo_Excluyente.acquire();
                     almacen.setCant_extremidad(apuntador, 1);
-                    sleep(1000*tiempo_produccion);
+                        //sleep(1000*tiempo_produccion);
                     apuntador = (apuntador + 1)%almacen.getTam_extremidad();
-                    System.out.println("+Productor de Extremidad: Produce una extremidad de robot+");
+                    label.setText(Integer.toString(almacen.Contar_Extremidad())); 
                     Semaforo_Excluyente.release();
                     Semaforo_Ensamblador.release();
-                    label.setText(Integer.toString(almacen.Contar_Extremidad()));
-                    synchronized(this)
+                    //label.setText(Integer.toString(almacen.Contar_Extremidad()));
+                    /*synchronized(this)
                     {
                        while(pausar==true)
                        {
                             wait();
                        }    
-                    }
+                    }*/
                 } 
                 catch (InterruptedException ex) 
                 {
@@ -230,6 +249,7 @@ public class Productor extends Thread
     {
      this.pausar=true;
     }
+    
     
     synchronized void reanudar()
     {

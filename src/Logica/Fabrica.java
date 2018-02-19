@@ -297,6 +297,38 @@ public class Fabrica
       }
     }
     
+    public void Reanudar()
+    {
+        for (Object p_cab: Productor_cabeza)
+        {
+            ((Productor)p_cab).reanudar();
+        }
+        for (Object p_cue: Productor_cuerpo)
+        {
+            ((Productor)p_cue).reanudar();
+        }
+        for (Object p_ext: Productor_extremidad)
+        {
+            ((Productor)p_ext).reanudar();
+        }        
+    }
+    
+    public void Pausar()
+    {
+        for (Object p_cab: Productor_cabeza)
+        {
+            ((Productor)p_cab).pausar();
+        }
+        for (Object p_cue: Productor_cuerpo)
+        {
+            ((Productor)p_cue).pausar();
+        }
+        for (Object p_ext: Productor_extremidad)
+        {
+            ((Productor)p_ext).pausar();
+        }        
+    }
+    
     //Método que asigna asigna los valores por archivo de texto:
     public void LeerDatos()throws FileNotFoundException, IOException
     {

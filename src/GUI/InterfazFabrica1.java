@@ -573,43 +573,11 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     }//GEN-LAST:event_contratarProdCabActionPerformed
 
     private void ReanudarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReanudarActionPerformed
-        for (Object p_cab: fabrica_robots.Productor_cabeza)
-        {
-            ((Productor)p_cab).getDetener().release();
-        }
-        for (Object p_cue: fabrica_robots.Productor_cuerpo)
-        {
-            ((Productor)p_cue).getDetener().release();
-        }
-        for (Object p_ext: fabrica_robots.Productor_extremidad)
-        {
-            ((Productor)p_ext).getDetener().release();
-        }
-        for (Object ens: fabrica_robots.Ensambladores)
-        {
-            ((Productor)ens).getDetener().release();
-        }
+        fabrica_robots.Reanudar();
     }//GEN-LAST:event_ReanudarActionPerformed
 
     private void PausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausarActionPerformed
-
-        for (Object p_cab: fabrica_robots.Productor_cabeza)
-        {
-            ((Productor)p_cab).setParar(true);
-        }
-        for (Object p_cue: fabrica_robots.Productor_cuerpo)
-        {
-            ((Productor)p_cue).setParar(true);
-        }
-        for (Object p_ext: fabrica_robots.Productor_extremidad)
-        {
-            ((Productor)p_ext).setParar(true);
-        }
-        for (Object ens: fabrica_robots.Ensambladores)
-        {
-            ((Productor)ens).setParar(true);
-        }
-
+        fabrica_robots.Pausar();
     }//GEN-LAST:event_PausarActionPerformed
 
     /**
