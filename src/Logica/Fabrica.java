@@ -32,12 +32,6 @@ public class Fabrica
     public ArrayList<Productor> Productor_extremidad;
     public ArrayList<Ensamblador> Ensambladores;
     
-    //Atributos Boolean para estatus de Productores-Ensambladores:
-    private boolean BPCab, BPCuer, BPExtr, BPE; //(Cabeza, Cuerpo, Extremidad, Ensamblador)
-    
-    //Atributos int para validaciones al llenar Productores-Ensambladores:
-    //private int cab=0, cuer=0, extr=0, ensam=0;
-    
     //Atributos JLabel:
     public JLabel nroDiasDespacho, cantidadCabezas, cantidadCuerpos, cantidadExtremidades, cantidadProdCab, cantidadProdCuerpo, cantidadProdExtrem, diasTrici, cantidadEnsambladores, cantidadRobots, estadoGerente, estadoCrono, nroDias;
     
@@ -201,7 +195,7 @@ public class Fabrica
     //Método para despedir a productor de cabezas de robot:
     public void Despedir_Prod_Cabeza()
     {
-        if(!Productor_cabeza.isEmpty())
+        if(Productor_cabeza.size()>1)
         {
             Productor_cabeza.remove(Productor_cabeza.size()-1);
             ini_prod_cabeza--;
@@ -213,26 +207,34 @@ public class Fabrica
     //Método para despedir a productor de cuerpos de robot:
     public void Despedir_Prod_Cuerpo()
     {   
-        Productor_cuerpo.remove(Productor_cuerpo.size()-1);
-        ini_prod_cuerpo--;
-        cantidadProdCuerpo.setText(Integer.toString(ini_prod_cuerpo)); 
-
+        if(Productor_cuerpo.size()>1)
+        {
+            Productor_cuerpo.remove(Productor_cuerpo.size()-1);
+            ini_prod_cuerpo--;
+            cantidadProdCuerpo.setText(Integer.toString(ini_prod_cuerpo));             
+        }
     }
     
     //Método para despedir a productor de extremidades de robot:
     public void Despedir_Prod_Extremidad()
     {
-        Productor_extremidad.remove(Productor_extremidad.size()-1);
-        ini_prod_extremidad--;
-        cantidadProdExtrem.setText(Integer.toString(ini_prod_extremidad));        
+        if(Productor_extremidad.size()>1)
+        {
+            Productor_extremidad.remove(Productor_extremidad.size()-1);
+            ini_prod_extremidad--;
+            cantidadProdExtrem.setText(Integer.toString(ini_prod_extremidad));              
+        }
     }
     
     //Método para despedir a ensamblador de robot:
     public void Despedir_Ensamblador()
     {
-        Ensambladores.remove(Ensambladores.size()-1);
-        ini_ensambladores--;
-        cantidadEnsambladores.setText(Integer.toString(ini_ensambladores)); 
+        if(Ensambladores.size()>1)
+        {
+                Ensambladores.remove(Ensambladores.size()-1);
+                ini_ensambladores--;
+                cantidadEnsambladores.setText(Integer.toString(ini_ensambladores)); 
+        }
     }
      
     //Método para empezar la producción-ensamblaje:
@@ -259,10 +261,10 @@ public class Fabrica
         }
         
         contador = new Contador(dia_despacho);
-        cronometrador = new Cronometrador (tiempo_dia, contador, estadoCrono, nroDiasDespacho, SE_Calendario);
-        //gerente = new Gerente (contador, SE_Ensamblador, SE_Calendario, almacen, estadoGerente, cantidadRobots, tiempo_dia);
+        cronometrador = new Cronometrador (tiempo_dia, contador, estadoCrono, nroDiasDespacho, nroDias, SE_Calendario);
+        gerente = new Gerente (contador, SE_Ensamblador, almacen, estadoGerente, cantidadRobots, tiempo_dia);
         cronometrador.start();
-        //gerente.start();
+        gerente.start();
     }
    
     //Método que inicializa y actualiza los ArrayLists con los números iniciales dados por el archivo de texto:

@@ -14,6 +14,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
 {
 
     Fabrica fabrica_robots;
+    boolean flag;
 
     public InterfazFabrica1() throws IOException
     {
@@ -21,6 +22,11 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         this.setLocationRelativeTo(null);
         fabrica_robots= new Fabrica (this.nroDiasDespacho, this.cantidadCabezas, this.cantidadCuerpos, this.cantidadExtremidades, this.cantidadProdCab, this.cantidadProdCuerpo, this.cantidadProdExtrem, this.cantidadEnsambladores, this.cantidadRobots, this.estadoGerente, this.estadoCrono, this.nroDias);
         fabrica_robots.Inicializar_ArrayLists();
+        flag=false;
+    }
+    public void activar_botones()
+    {
+        flag=true;
     }
 
     
@@ -529,55 +535,86 @@ public class InterfazFabrica1 extends javax.swing.JFrame
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
         // TODO add your handling code here:
+        activar_botones();
         fabrica_robots.Producir_Ensamblar();
     }//GEN-LAST:event_IniciarActionPerformed
 
     private void despedirEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEnsambladorActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Despedir_Ensamblador();
+        if(flag)
+        {
+            fabrica_robots.Despedir_Ensamblador();
+        }
     }//GEN-LAST:event_despedirEnsambladorActionPerformed
 
     private void contratarEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarEnsambladorActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Contratar_Ensamblador();
+        if(flag)
+        {
+            fabrica_robots.Contratar_Ensamblador();
+        }
     }//GEN-LAST:event_contratarEnsambladorActionPerformed
 
     private void despedirProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdExtremActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Despedir_Prod_Extremidad();
+        if(flag)
+        {
+            fabrica_robots.Despedir_Prod_Extremidad();
+        }
     }//GEN-LAST:event_despedirProdExtremActionPerformed
 
     private void contratarProdExtremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdExtremActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Contratar_Prod_Extremidad();
+        if(flag)
+        {
+            fabrica_robots.Contratar_Prod_Extremidad();
+        }
     }//GEN-LAST:event_contratarProdExtremActionPerformed
 
     private void despedirProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCuerposActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Despedir_Prod_Cuerpo();
+        if(flag)
+        {
+            fabrica_robots.Despedir_Prod_Cuerpo();
+        }
     }//GEN-LAST:event_despedirProdCuerposActionPerformed
 
     private void contratarProdCuerposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCuerposActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Contratar_Prod_Cuerpo();
+        if(flag)
+        {
+            fabrica_robots.Contratar_Prod_Cuerpo();
+        }
     }//GEN-LAST:event_contratarProdCuerposActionPerformed
 
     private void despedirProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirProdCabActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Despedir_Prod_Cabeza();
+        if(flag)
+        {
+            fabrica_robots.Despedir_Prod_Cabeza();
+        }
     }//GEN-LAST:event_despedirProdCabActionPerformed
 
     private void contratarProdCabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarProdCabActionPerformed
         // TODO add your handling code here:
-        fabrica_robots.Contratar_Prod_Cabeza();
+        if(flag)
+        {
+            fabrica_robots.Contratar_Prod_Cabeza();
+        }
     }//GEN-LAST:event_contratarProdCabActionPerformed
 
     private void ReanudarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReanudarActionPerformed
-        fabrica_robots.Reanudar();
+        if(flag)
+        {
+            fabrica_robots.Reanudar();
+        }
     }//GEN-LAST:event_ReanudarActionPerformed
 
     private void PausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PausarActionPerformed
-        fabrica_robots.Pausar();
+        if(flag)
+        {
+            fabrica_robots.Pausar();
+        }
     }//GEN-LAST:event_PausarActionPerformed
 
     /**

@@ -14,7 +14,7 @@ public class Productor extends Thread
     private int tipo, cont_pieza, apuntador=0; //Tipos: 0->Cabeza, 1->Cuerpo, 2->Extremidad
     private JLabel label;
     private int tiempo_produccion;
-    private boolean pausar=false, parar;
+    private boolean pausar=false;
     
     //Constructor:
     public Productor(Almacen almacen, Semaphore Semaforo_Excluyente, Semaphore Semaforo_Productor, Semaphore Semaforo_Ensamblador, int tipo, JLabel label, int tiempo_produccion) 
@@ -26,7 +26,6 @@ public class Productor extends Thread
         this.tipo = tipo;
         this.label = label;
         this.tiempo_produccion = tiempo_produccion;
-        parar=false;
     }
     
     //Getter y Setter:
@@ -101,22 +100,6 @@ public class Productor extends Thread
 
     public void setTiempo_produccion(int tiempo_produccion) {
         this.tiempo_produccion = tiempo_produccion;
-    }
-
-    public boolean isParar() {
-        return parar;
-    }
-
-    public void setParar(boolean parar) {
-        this.parar = parar;
-    }
-
-    public Semaphore getDetener() {
-        return Detener;
-    }
-
-    public void setDetener(Semaphore Detener) {
-        this.Detener = Detener;
     }
     
     @Override

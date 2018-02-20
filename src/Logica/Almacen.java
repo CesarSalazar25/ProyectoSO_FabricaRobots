@@ -6,7 +6,8 @@ public class Almacen
     private int[] almacen_cabeza;
     private int[] almacen_cuerpo;
     private int[] almacen_extremidad;
-    private int tam_cabeza, tam_cuerpo, tam_extremidad, cant_cabeza, cant_cuerpo, cant_extremidad,cant_robots;
+    private int tam_cabeza, tam_cuerpo, tam_extremidad, cant_cabeza, cant_cuerpo, cant_extremidad, cant_robots, s;
+    private boolean i;
     
     //Constructor:
     public Almacen(int tam_cabeza, int tam_cuerpo, int tam_extremidad) 
@@ -145,8 +146,14 @@ public class Almacen
         }
         return cant_cuerpo;
     }
+   
+    public void mandarbool(boolean a)
+    {
+        i=a;
+    }
     
-    
-    
-    
+    public boolean flag()
+    {
+        return i;
+    }
 }
