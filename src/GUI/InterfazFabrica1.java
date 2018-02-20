@@ -461,7 +461,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel1.add(despedirEnsamblador, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 399, 108, -1));
 
         cantidadEnsambladores.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        cantidadEnsambladores.setForeground(new java.awt.Color(255, 255, 255));
+        cantidadEnsambladores.setForeground(new java.awt.Color(255, 153, 51));
         cantidadEnsambladores.setText("X");
         jPanel1.add(cantidadEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 374, -1, -1));
 
@@ -469,22 +469,22 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel1.add(robotimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 141, -1, -1));
 
         cantidadRobots.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        cantidadRobots.setForeground(new java.awt.Color(255, 255, 255));
+        cantidadRobots.setForeground(new java.awt.Color(255, 153, 51));
         cantidadRobots.setText("X");
         jPanel1.add(cantidadRobots, new org.netbeans.lib.awtextra.AbsoluteConstraints(814, 188, -1, -1));
 
         nroDiasDespacho.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        nroDiasDespacho.setForeground(new java.awt.Color(255, 255, 255));
+        nroDiasDespacho.setForeground(new java.awt.Color(255, 153, 51));
         nroDiasDespacho.setText("X");
         jPanel1.add(nroDiasDespacho, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 386, -1, -1));
 
         estadoGerente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        estadoGerente.setForeground(new java.awt.Color(255, 255, 255));
+        estadoGerente.setForeground(new java.awt.Color(255, 153, 51));
         estadoGerente.setText("X");
         jPanel1.add(estadoGerente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
         estadoCrono.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        estadoCrono.setForeground(new java.awt.Color(255, 255, 255));
+        estadoCrono.setForeground(new java.awt.Color(255, 153, 51));
         estadoCrono.setText("X");
         jPanel1.add(estadoCrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, -1, -1));
 
@@ -502,7 +502,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
         jPanel1.add(diasTranscurridos, new org.netbeans.lib.awtextra.AbsoluteConstraints(599, 338, -1, -1));
 
         nroDias.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        nroDias.setForeground(new java.awt.Color(255, 255, 255));
+        nroDias.setForeground(new java.awt.Color(255, 153, 51));
         nroDias.setText("X");
         jPanel1.add(nroDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 334, -1, -1));
 

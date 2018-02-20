@@ -201,11 +201,13 @@ public class Fabrica
     //Método para despedir a productor de cabezas de robot:
     public void Despedir_Prod_Cabeza()
     {
-        Productor_cabeza.remove(Productor_cabeza.size()-1);
-        ini_prod_cabeza--;
-        cantidadProdCab.setText(Integer.toString(ini_prod_cabeza)); 
-        
-        
+        if(!Productor_cabeza.isEmpty())
+        {
+            Productor_cabeza.remove(Productor_cabeza.size()-1);
+            ini_prod_cabeza--;
+            cantidadProdCab.setText(Integer.toString(ini_prod_cabeza));             
+        }
+          
     }         
     
     //Método para despedir a productor de cuerpos de robot:
@@ -256,11 +258,11 @@ public class Fabrica
           ((Ensamblador)ens).start();
         }
         
-        contador = new Contador();
-        cronometrador = new Cronometrador (tiempo_dia, estadoCrono, nroDias, contador, SE_Calendario);
-        gerente = new Gerente (contador, SE_Ensamblador, SE_Calendario, almacen, estadoGerente, cantidadRobots, tiempo_dia);
+        contador = new Contador(dia_despacho);
+        cronometrador = new Cronometrador (tiempo_dia, contador, estadoCrono, nroDiasDespacho, SE_Calendario);
+        //gerente = new Gerente (contador, SE_Ensamblador, SE_Calendario, almacen, estadoGerente, cantidadRobots, tiempo_dia);
         cronometrador.start();
-        gerente.start();
+        //gerente.start();
     }
    
     //Método que inicializa y actualiza los ArrayLists con los números iniciales dados por el archivo de texto:
@@ -310,7 +312,11 @@ public class Fabrica
         for (Object p_ext: Productor_extremidad)
         {
             ((Productor)p_ext).reanudar();
-        }        
+        }
+        for (Object ens: Ensambladores)
+        {
+            ((Ensamblador)ens).reanudar();
+        }            
     }
     
     public void Pausar()
@@ -326,6 +332,10 @@ public class Fabrica
         for (Object p_ext: Productor_extremidad)
         {
             ((Productor)p_ext).pausar();
+        }
+        for (Object ens: Ensambladores)
+        {
+            ((Ensamblador)ens).pausar();
         }        
     }
     

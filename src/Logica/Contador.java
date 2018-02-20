@@ -4,11 +4,13 @@ public class Contador extends Thread
 {
     //Variables:
     private int cont_dia;
+    private int dia_original;
 
     //Constructor:
-    public Contador() 
+    public Contador(int despacho) 
     {
-        cont_dia = 0;
+        this.cont_dia = despacho;
+        this.dia_original=despacho;
     }
 
     //Getter y Setter
@@ -21,11 +23,17 @@ public class Contador extends Thread
     {
         this.cont_dia = cont_dia;
     }
-    
-    //Incrementa los días:
-    public void incrementarCont_Dia() 
+
+    public int getDia_Original() 
     {
-        cont_dia++;
+        return dia_original;
+    }
+    
+    //Decrementa los días de despacho:
+    public void decrementarCont_Dia() 
+    {
+        cont_dia--;
+        
     }
 
    

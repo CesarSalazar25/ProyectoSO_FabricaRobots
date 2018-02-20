@@ -123,7 +123,7 @@ public class Productor extends Thread
      public void run ()
      {
         while(true)
-        {
+        {   
             //Pausa el proceso de producción:
             synchronized(this)
             {
@@ -138,7 +138,8 @@ public class Productor extends Thread
                         Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }    
-            }            
+            }               
+            
             //Productor de Cabeza:
             if(tipo==0)
             {
@@ -148,15 +149,14 @@ public class Productor extends Thread
                     Semaforo_Productor.acquire();
                     
                     //Produce:
-                    sleep(1000*tiempo_produccion);
-                    System.out.println("+Productor de Cabeza: Produce un cabeza robot+");
                     
                     //Entra en el almacen:                    
                     Semaforo_Excluyente.acquire();
-                    
+                    //sleep(1000*tiempo_produccion);
+                    System.out.println("+Productor de Cabeza: Produce un cabeza robot+");
                     //Deja lo producido en el almacen:
                     almacen.setCant_cabeza(apuntador, 1);
-                        //sleep(1000*tiempo_produccion);
+                        sleep(1000*tiempo_produccion);
                     apuntador = (apuntador + 1)%almacen.getTam_cabeza();
                     label.setText(Integer.toString(almacen.Contar_Cabeza()));
                         //System.out.println("+Productor de Cabeza: Produce un cabeza robot+");
@@ -187,17 +187,17 @@ public class Productor extends Thread
                 try 
                 {
                     Semaforo_Productor.acquire();
-                    sleep(1000*tiempo_produccion);
+                    //sleep(1000*tiempo_produccion);
                     System.out.println("+ Productor de Cuerpo: Produce un cuerpo robot+");
                     Semaforo_Excluyente.acquire();
                     almacen.setCant_cuerp(apuntador, 1);
-                        //sleep(1000*tiempo_produccion);
+                        sleep(1000*tiempo_produccion);
                         //System.out.println("+ Productor de Cuerpo: Produce un cuerpo robot+");
                     apuntador = (apuntador + 1)%almacen.getTam_cuerpo();
                     label.setText(Integer.toString(almacen.Contar_Cuerpo()));                  
                     Semaforo_Excluyente.release();
                     Semaforo_Ensamblador.release();
-                    label.setText(Integer.toString(almacen.Contar_Cuerpo()));
+                        //label.setText(Integer.toString(almacen.Contar_Cuerpo()));
                     
                     /*synchronized(this)
                     {
@@ -219,11 +219,11 @@ public class Productor extends Thread
                 try 
                 {
                     Semaforo_Productor.acquire();
-                    sleep(1000*tiempo_produccion);
+                    //sleep(1000*tiempo_produccion);
                     System.out.println("+Productor de Extremidad: Produce una extremidad de robot+");
                     Semaforo_Excluyente.acquire();
                     almacen.setCant_extremidad(apuntador, 1);
-                        //sleep(1000*tiempo_produccion);
+                        sleep(1000*tiempo_produccion);
                     apuntador = (apuntador + 1)%almacen.getTam_extremidad();
                     label.setText(Integer.toString(almacen.Contar_Extremidad())); 
                     Semaforo_Excluyente.release();
@@ -241,20 +241,21 @@ public class Productor extends Thread
                 {
                     Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
                 }                
-            }
+            }               
         }    
     } 
     
+    //Método para pausar:
     public void pausar() 
     {
-     this.pausar=true;
+        this.pausar=true;
     }
     
-    
+    //Método para continuar:
     synchronized void reanudar()
     {
-     this.pausar=false;
-     notify();
+        this.pausar=false;
+        notify();
     }    
 
 }
