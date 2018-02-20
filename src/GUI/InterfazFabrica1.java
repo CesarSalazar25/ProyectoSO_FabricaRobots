@@ -27,6 +27,7 @@ public class InterfazFabrica1 extends javax.swing.JFrame
     public void activar_botones()
     {
         flag=true;
+        fabrica_robots.Producir_Ensamblar();
     }
 
     
@@ -535,8 +536,9 @@ public class InterfazFabrica1 extends javax.swing.JFrame
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
         // TODO add your handling code here:
-        activar_botones();
-        fabrica_robots.Producir_Ensamblar();
+        if(flag==false){
+            activar_botones();
+        }
     }//GEN-LAST:event_IniciarActionPerformed
 
     private void despedirEnsambladorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEnsambladorActionPerformed

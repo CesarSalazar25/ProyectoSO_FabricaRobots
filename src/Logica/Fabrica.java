@@ -21,10 +21,7 @@ public class Fabrica
     private Almacen almacen;
     private Contador contador;
     private Gerente gerente;
-    //private Productor Productor_Cabeza;
-    //private Productor Productor_Cuerpo;
-    //private Productor Productor_Extremidad;
-    //private Ensamblador Ensamblador;
+
     
     //ArrayLists de Productor-Ensamblador:
     public ArrayList<Productor> Productor_cabeza;

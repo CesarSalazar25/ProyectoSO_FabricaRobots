@@ -10,7 +10,7 @@ public class Productor extends Thread
 {
     //Variables:
     public Almacen almacen;
-    private Semaphore Semaforo_Excluyente, Semaforo_Productor, Semaforo_Ensamblador, Detener= new Semaphore(0);
+    private Semaphore Semaforo_Excluyente, Semaforo_Productor, Semaforo_Ensamblador;
     private int tipo, cont_pieza, apuntador=0; //Tipos: 0->Cabeza, 1->Cuerpo, 2->Extremidad
     private JLabel label;
     private int tiempo_produccion;
@@ -142,22 +142,13 @@ public class Productor extends Thread
                         sleep(1000*tiempo_produccion);
                     apuntador = (apuntador + 1)%almacen.getTam_cabeza();
                     label.setText(Integer.toString(almacen.Contar_Cabeza()));
-                        //System.out.println("+Productor de Cabeza: Produce un cabeza robot+");
                         
                     //Se sale del almacen:                          
                     Semaforo_Excluyente.release();
                     
                     //Listo para consumir                    
                     Semaforo_Ensamblador.release();
-                        //label.setText(Integer.toString(almacen.Contar_Cabeza()));
-                    
-                    /*synchronized(this)
-                    {
-                       while(pausar==true)
-                       {
-                            wait();
-                       }    
-                    }*/
+
                 } 
                 catch (InterruptedException ex) 
                 {
@@ -175,20 +166,11 @@ public class Productor extends Thread
                     Semaforo_Excluyente.acquire();
                     almacen.setCant_cuerp(apuntador, 1);
                         sleep(1000*tiempo_produccion);
-                        //System.out.println("+ Productor de Cuerpo: Produce un cuerpo robot+");
                     apuntador = (apuntador + 1)%almacen.getTam_cuerpo();
                     label.setText(Integer.toString(almacen.Contar_Cuerpo()));                  
                     Semaforo_Excluyente.release();
                     Semaforo_Ensamblador.release();
-                        //label.setText(Integer.toString(almacen.Contar_Cuerpo()));
-                    
-                    /*synchronized(this)
-                    {
-                       while(pausar==true)
-                       {
-                            wait();
-                       }    
-                    }*/
+  
 
                 } 
                 catch (InterruptedException ex) 
@@ -211,14 +193,7 @@ public class Productor extends Thread
                     label.setText(Integer.toString(almacen.Contar_Extremidad())); 
                     Semaforo_Excluyente.release();
                     Semaforo_Ensamblador.release();
-                    //label.setText(Integer.toString(almacen.Contar_Extremidad()));
-                    /*synchronized(this)
-                    {
-                       while(pausar==true)
-                       {
-                            wait();
-                       }    
-                    }*/
+
                 } 
                 catch (InterruptedException ex) 
                 {

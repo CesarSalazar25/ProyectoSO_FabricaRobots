@@ -10,8 +10,8 @@ public class Ensamblador extends Thread
 {
     //Variables:
     private Almacen almacen;
-    private Semaphore Semaforo_ProducciónCabeza, Semaforo_ConsumidorCabeza, Semaforo_ExcluyenteCabeza, Semaforo_ProducciónCuerpo, Semaforo_ConsumidorCuerpo, Semaforo_ExcluyenteCuerpo, Semaforo_ProducciónExtremidad, Semaforo_ConsumidorExtremidad, Semaforo_ExcluyenteExtremidad, Semaforo_ExcluyenteEnsamblador, Detener = new Semaphore(0);
-    private int apuntador_Cabeza = 0, apuntador_Cuerpo = 0, apuntador_Extremidad = 0, tiempo_ensamblaje, robots=0;
+    private Semaphore Semaforo_ProducciónCabeza, Semaforo_ConsumidorCabeza, Semaforo_ExcluyenteCabeza, Semaforo_ProducciónCuerpo, Semaforo_ConsumidorCuerpo, Semaforo_ExcluyenteCuerpo, Semaforo_ProducciónExtremidad, Semaforo_ConsumidorExtremidad, Semaforo_ExcluyenteExtremidad, Semaforo_ExcluyenteEnsamblador;
+    private int apuntador_Cabeza = 0, apuntador_Cuerpo = 0, apuntador_Extremidad = 0, tiempo_ensamblaje, num_robots=0;
     private JLabel Cabezas, Cuerpos, Extremidades, Robots;
     private boolean pausar=false;
     
@@ -42,12 +42,6 @@ public class Ensamblador extends Thread
     {
         while (true)
         {
-                if(almacen.flag())
-                {
-                    robots=0;
-                    almacen.mandarbool(false);
-                }
-            
             //Pausa el proceso de ensamblaje:
             synchronized(this)
             {
@@ -135,9 +129,9 @@ public class Ensamblador extends Thread
                     sleep(1000*tiempo_ensamblaje);
                 
                     System.out.println("+Ensamblador: Ensambla un robot+");
-                    robots++;
-                    almacen.setCant_robots(robots);
-                    Robots.setText(Integer.toString(robots));
+                    num_robots++;
+                    almacen.setCant_robots(num_robots);
+                    Robots.setText(Integer.toString(almacen.getCant_robots()));
                                     
             } 
             catch (InterruptedException ex) 

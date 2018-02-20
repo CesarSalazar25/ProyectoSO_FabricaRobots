@@ -87,7 +87,6 @@ public class Gerente extends Thread
                     SE_Robots.acquire();
                     almacen.setCant_robots(0);
                     cantRobots.setText(Integer.toString(almacen.getCant_robots()));
-                    almacen.mandarbool(true);
                     try 
                     {
                         sleep (tiempo_Dia*1000);
